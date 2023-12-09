@@ -62,11 +62,9 @@ int main(){
     g.addEdge(2, 3);
     g.addEdge(3, 3);
  
-    cout << "Following is Depth First Traversal"
-            " (starting from vertex 2) \n";
- 
-    // Function call
-    g.BFS(2);
+    cout << "enter vertex for traverse" << endl;
+ int v;
+ cin >> v;
  
     return 0;
 }
