@@ -1,6 +1,5 @@
 // Online C++ compiler to run C++ program online
 #include <iostream>
-#include<queue>
 using namespace std;
 
 class Node{
@@ -28,34 +27,15 @@ Node* InsertIntoTree(Node* &root,int d){
     }
     return root;
 }
-    void levelOrderTraveral(Node* root){
-        queue<Node*> q;
-        q.push(root);
-        q.push(NULL);
-        
-        while(!q.empty()){
-            Node* temp =q.front();
-            q.pop();
-            
-            if(temp==NULL){
-                //the old level is completed traversal
-                cout<<endl;
-                if(!q.empty()){
-                    q.push(NULL);
-                }
-                
-            }
-            else{
-                cout << temp->data << " ";
-                if (temp->left){
-                    q.push(temp->left);
-                }
-                if (temp->right){
-                    q.push(temp->right);
-                }
-            }
-        }
-    } 
+    
+void inorderTraversal(struct Node* node) {
+  if (node == NULL)
+    return;
+
+  inorderTraversal(node->left);
+  cout << node->data << "->";
+  inorderTraversal(node->right);
+}      
 
 void TakeData(Node* &root){
     int data;
@@ -69,6 +49,6 @@ int main() {
    Node* root =NULL;
 cout << "enter the data for tree" << endl;
   TakeData(root);
-  levelOrderTraveral(root);
+  inorderTraveral(root);
     return 0;
 }
